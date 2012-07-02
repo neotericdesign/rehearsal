@@ -3,9 +3,9 @@ require File.expand_path('../lib/protection/version', __FILE__)
 
 Gem::Specification.new do |gem|
   gem.authors       = ["Joe Sak"]
-  gem.email         = ["joe@joesak.com"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
+  gem.email         = ["joe@neotericdesign.com"]
+  gem.description   = %q{Quickly add Staging Env. HTTP basic auth to your project}
+  gem.summary       = %q{Easy HTTP Basic Auth for Staging Rails Apps}
   gem.homepage      = ""
 
   gem.files         = `git ls-files`.split($\)
