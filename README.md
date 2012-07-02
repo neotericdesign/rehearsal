@@ -1,8 +1,10 @@
 # Protection
 
-TODO: Write a gem description
+This gem gives drop-in staging environment HTTP basic auth for rails apps, maybe any Ruby web app.
 
 ## Installation
+
+**Must be using Neoteric's GemFury source, as this is private**
 
 Add this line to your application's Gemfile:
 
@@ -18,12 +20,13 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+In the controller you want to protect, or in application_controller to protect the entire app:
 
-## Contributing
+    class ApplicationController < ActionController::Base
+      include Neoteric::Protection
+    end
 
-1. Fork it
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Added some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
+And you must set these two ENV variables:
+
+    export STAGING_USERNAME=*your_username*
+    export STAGING_PASSWORD=*your_secret*
