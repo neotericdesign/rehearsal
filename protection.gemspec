@@ -14,4 +14,6 @@ Gem::Specification.new do |gem|
   gem.name          = "protection"
   gem.require_paths = ["lib"]
   gem.version       = Protection::VERSION
+
+  gem.add_dependency 'activesupport'
 end
