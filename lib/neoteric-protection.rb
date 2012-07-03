@@ -1,4 +1,4 @@
-require "protection/version"
+require "neoteric-protection/version"
 
 module Neoteric
   module Protection
