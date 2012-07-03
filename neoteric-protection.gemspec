@@ -1,5 +1,5 @@
 # -*- encoding: utf-8 -*-
-require File.expand_path('../lib/protection/version', __FILE__)
+require File.expand_path('../lib/neoteric-protection/version', __FILE__)
 
 Gem::Specification.new do |gem|
   gem.authors       = ["Joe Sak"]
@@ -11,9 +11,9 @@ Gem::Specification.new do |gem|
   gem.files         = `git ls-files`.split($\)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
-  gem.name          = "protection"
+  gem.name          = "neoteric-protection"
   gem.require_paths = ["lib"]
-  gem.version       = Protection::VERSION
+  gem.version       = Neoteric::Protection::VERSION
 
   gem.add_dependency 'activesupport'
 end
