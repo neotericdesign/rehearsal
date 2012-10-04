@@ -14,6 +14,4 @@ Gem::Specification.new do |gem|
   gem.name          = "neoteric-protection"
   gem.require_paths = ["lib"]
   gem.version       = Neoteric::Protection::VERSION
-
-  gem.add_dependency 'activesupport'
 end
