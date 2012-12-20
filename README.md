@@ -1,14 +1,14 @@
-# Protection
+# Rehearsal
 
 This gem gives drop-in staging environment HTTP basic auth for rails apps, maybe any Ruby web app.
 
-## Installation
+You also get a `staging_banner` view helper
 
-**Must be using Neoteric's GemFury source, as this is private**
+## Installation
 
 Add this line to your application's Gemfile:
 
-    gem 'protection'
+    gem 'rehearsal'
 
 And then execute:
 
@@ -16,17 +16,22 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install protection
+    $ gem install rehearsal
 
 ## Usage
 
 In the controller you want to protect, or in application_controller to protect the entire app:
 
     class ApplicationController < ActionController::Base
-      include Neoteric::Protection
+      rehearse_with :username => 'username',
+                    :password => 'password'
     end
 
-And you must set these two ENV variables:
+## Staging Banner View Helper
 
-    export STAGING_USERNAME=*your_username*
-    export STAGING_PASSWORD=*your_secret*
+In your view templates (for example, in your layout), you can insert the banner:
+
+    <body>
+      <%= staging_banner :message => "Put your message here" %>
+      <!-- ... -->
+    </body>
