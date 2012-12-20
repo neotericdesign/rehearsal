@@ -26,7 +26,7 @@ module Rehearsal
   def require_http_basic_auth
     authenticate_or_request_with_http_basic do |username, password|
       username == self.username && password == self.password
-    end# if staging?
+    end if staging?
   end
 
   def staging?
