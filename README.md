@@ -38,6 +38,20 @@ In the controller you want to protect, or in application_controller to protect t
                     :password => 'password'
     end
 
+Add the CSS to your application.css:
+
+    @import "rehearsal";
+
+    -or-
+
+    //= require rehearsal
+
+**or** define your own style:
+
+    #rehearsal-staging-banner {
+      /* styles */
+    }
+
 ## Staging Banner View Helper
 
 In your view templates (for example, in your layout), you can insert the banner:
