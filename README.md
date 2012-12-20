@@ -20,6 +20,17 @@ Or install it yourself as:
 
 ## Usage
 
+**You must have a staging environment**
+
+    $ cp config/environments/production.rb config/environments/staging.rb
+
+**Add a `staging` section to your database.yml**
+
+**Run your app in staging mode**
+
+   $ RAILS_ENV=staging
+   $ heroku config:add RAILS_ENV=staging
+
 In the controller you want to protect, or in application_controller to protect the entire app:
 
     class ApplicationController < ActionController::Base
