@@ -44,7 +44,7 @@ Require the CSS in your asset pipeline:
 
 In your view templates (for example, in your layout), you can insert the banner:
 
-```html
+```html.erb
 <body>
   <%= rehearsal_banner :message => "Put your message here" %>
   <!-- ... -->
