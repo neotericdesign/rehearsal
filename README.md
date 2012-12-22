@@ -25,23 +25,6 @@ class ApplicationController < ActionController::Base
 end
 ```
 
-Require the CSS in your asset pipeline:
-
-```scss
-//= require rehearsal
-
-// or, scss:
-@import "rehearsal";
-```
-
-**or** define your own style:
-
-```css
-#rehearsal-banner {
-  /* styles */
-}
-```
-
 ## Rehearsal Banner View Helper
 
 In your view templates (for example, in your layout), you can insert the banner:
@@ -51,6 +34,23 @@ In your view templates (for example, in your layout), you can insert the banner:
   <%= rehearsal_banner :message => "Put your message here" %>
   <!-- ... -->
 </body>
+```
+
+You can style the banner:
+
+```css
+#rehearsal-banner {
+  /* styles */
+}
+```
+
+Or require the default CSS:
+
+```scss
+//= require rehearsal
+
+// or, scss:
+@import "rehearsal";
 ```
 
 ## Configurable options
