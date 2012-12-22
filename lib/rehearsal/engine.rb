@@ -1,3 +1,4 @@
+require 'rehearsal/configuration'
 require 'rehearsal/view_helpers'
 
 module Rehearsal

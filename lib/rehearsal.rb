@@ -22,6 +22,20 @@ module Rehearsal
     end
   end
 
+  class << self
+    def configure
+      yield(config)
+    end
+
+    def config=(config_instance)
+      @config = config_instance
+    end
+
+    def config
+      @config ||= Configuration.new
+    end
+  end
+
   private
   def require_http_basic_auth
     authenticate_or_request_with_http_basic do |username, password|
