@@ -1,62 +1,52 @@
 # Rehearsal
 
-This gem gives drop-in staging environment HTTP basic auth for rails apps, maybe any Ruby web app.
+This gem enables drop-in HTTP basic auth for Rails apps with a banner view helper
 
-You also get a `staging_banner` view helper
+You also get a `rehearsal_banner` view helper
 
 ## Installation
 
-Add this line to your application's Gemfile:
+Run `bundle install` after adding this to your Gemfile:
 
     gem 'rehearsal'
 
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install rehearsal
-
 ## Usage
 
-**You must have a staging environment**
+**By default, Rehearsal depends on a Rails staging environment**
 
-    $ cp config/environments/production.rb config/environments/staging.rb
+In the controller you want to protect
 
-**Add a `staging` section to your database.yml**
+```ruby
+class ApplicationController < ActionController::Base
+  rehearse_with :username => 'username',
+                :password => 'password'
+end
+```
 
-**Run your app in staging mode**
+Require the CSS in your asset pipeline:
 
-    $ RAILS_ENV=staging
-    $ heroku config:add RAILS_ENV=staging
+```scss
+//= require rehearsal
 
-In the controller you want to protect, or in application_controller to protect the entire app:
-
-    class ApplicationController < ActionController::Base
-      rehearse_with :username => 'username',
-                    :password => 'password'
-    end
-
-Add the CSS to your application.css:
-
-    @import "rehearsal";
-
-    -or-
-
-    //= require rehearsal
+// or, scss:
+@import "rehearsal";
+```
 
 **or** define your own style:
 
-    #rehearsal-staging-banner {
-      /* styles */
-    }
+```css
+#rehearsal-banner {
+  /* styles */
+}
+```
 
-## Staging Banner View Helper
+## Rehearsal Banner View Helper
 
 In your view templates (for example, in your layout), you can insert the banner:
 
-    <body>
-      <%= staging_banner :message => "Put your message here" %>
-      <!-- ... -->
-    </body>
+```html
+<body>
+  <%= rehearsal_banner :message => "Put your message here" %>
+  <!-- ... -->
+</body>
+```
