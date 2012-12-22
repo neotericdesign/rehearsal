@@ -8,7 +8,9 @@ You also get a `rehearsal_banner` view helper
 
 Run `bundle install` after adding this to your Gemfile:
 
-    gem 'rehearsal'
+```ruby
+gem 'rehearsal', '~> 1.0.0'
+```
 
 ## Usage
 
