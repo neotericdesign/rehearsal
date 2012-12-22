@@ -8,10 +8,12 @@ Gem::Specification.new do |gem|
   gem.summary       = %q{Easy HTTP Basic Auth for Staging Rails Apps}
   gem.homepage      = ""
 
-  gem.files         = `git ls-files`.split($\)
+  gem.files         = `git ls-files -- {lib/*,vendor/*,*.gemspec}`.split("\n")
+  gem.require_paths = ["lib"]
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.name          = "rehearsal"
-  gem.require_paths = ["lib", "vendor"]
   gem.version       = Rehearsal::VERSION
+
+  gem.add_dependency 'rails', '>= 3.0.0', '< 4.0.0'
 end
