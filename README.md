@@ -50,3 +50,19 @@ In your view templates (for example, in your layout), you can insert the banner:
   <!-- ... -->
 </body>
 ```
+
+## Configurable options
+
+At this time, you can configure the Rails environment to enable Rehearsal on:
+
+```
+$ rails g rehearsal:intializer
+```
+
+```ruby
+# config/intitializers/rehersal.rb
+
+Rehearsal.configure do |config|
+  config.env = :development
+end
+```
