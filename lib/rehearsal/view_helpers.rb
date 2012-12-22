@@ -1,7 +1,7 @@
 module Rehearsal
   module ViewHelpers
     def staging_banner(options = {})
-      return unless staging?
+      return unless rehearsing?
 
       content_tag :div, :id => 'rehearsal-staging-banner' do
         options[:message] || default_message
@@ -10,7 +10,7 @@ module Rehearsal
 
     private
     def default_message
-      'This is your staging banner. Override this text with the :message option.'
+      'This is your rehearsal banner. Override this text with the :message option.'
     end
   end
 end
