@@ -1,9 +1,9 @@
 module Rehearsal
   module ViewHelpers
-    def staging_banner(options = {})
+    def rehearsal_banner(options = {})
       return unless rehearsing?
 
-      content_tag :div, :id => 'rehearsal-staging-banner' do
+      content_tag :div, :id => 'rehearsal-banner' do
         options[:message] || default_message
       end
     end
