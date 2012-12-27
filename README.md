@@ -55,8 +55,6 @@ Or require the default CSS:
 
 ## Configurable options
 
-At this time, you can configure the Rails environment to enable Rehearsal on:
-
 ```
 $ rails g rehearsal:intializer
 ```
@@ -65,6 +63,7 @@ $ rails g rehearsal:intializer
 # config/intitializers/rehersal.rb
 
 Rehearsal.configure do |config|
-  config.env = :development
+  config.env     = :staging
+  config.enabled = true
 end
 ```
