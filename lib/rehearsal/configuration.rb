@@ -4,7 +4,7 @@ module Rehearsal
 
     def initialize
       @env   ||= :staging
-      @enabled = true if @enabled.nil?
+      @enabled = false if @enabled.nil?
     end
   end
 end
