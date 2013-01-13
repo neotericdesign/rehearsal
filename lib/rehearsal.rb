@@ -9,14 +9,14 @@ module Rehearsal
   end
 
   module ClassMethods
-    def rehearse_with(options = {})
+    def rehearse_with(username, password)
       class_eval do
         define_method(:username) do
-          options[:username]
+          username
         end
 
         define_method(:password) do
-          options[:password]
+          password
         end
       end
     end
