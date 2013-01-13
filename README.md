@@ -20,8 +20,7 @@ In the controller you want to protect
 
 ```ruby
 class ApplicationController < ActionController::Base
-  rehearse_with :username => 'username',
-                :password => 'password'
+  rehearse_with 'username', 'password'
 end
 ```
 
@@ -31,6 +30,7 @@ In your view templates (for example, in your layout), you can insert the banner:
 
 ```html.erb
 <body>
+  <!-- Only appears in Rehearsal.config.env, or Rails.env.staging by default -->
   <%= rehearsal_banner :message => "Put your message here" %>
   <!-- ... -->
 </body>
