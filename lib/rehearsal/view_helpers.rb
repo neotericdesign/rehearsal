@@ -1,16 +1,20 @@
 module Rehearsal
   module ViewHelpers
-    def rehearsal_banner(options = {})
+    def rehearsal_banner(message = nil)
       return unless rehearsing?
 
       content_tag :div, :id => 'rehearsal-banner' do
-        options[:message] || default_message
+        if block_given?
+          yield
+        else
+          message || default_message
+        end
       end
     end
 
     private
     def default_message
-      'This is your rehearsal banner. Override this text with the :message option.'
+      'Override this message by passing in a string or a block.'
     end
   end
 end
