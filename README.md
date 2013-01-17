@@ -1,6 +1,6 @@
 # Rehearsal
 
-This gem enables drop-in HTTP basic auth for Rails apps with a banner view helper
+This gem enables drop-in HTTP basic auth for Rails apps
 
 You also get a `rehearsal_banner` view helper
 
