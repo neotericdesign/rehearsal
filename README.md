@@ -30,14 +30,18 @@ The rehearsal banner will appear in the configured Rehearsal.config.env, :stagin
 
 In your view templates (for example, in your layout), you can insert the banner:
 
-```html.erb
+```erb
 <body>
-  <!-- To use multi-line HTML/erb -->
+  <!-- You can use multi-line HTML/erb with a block... -->
+  
   <%= rehearsal_banner do %>
-    Put a message here with <%= link_to 'a link', '/somewhere' %>
+    Put a message here with <%= link_to 'a link', '/to/somewhere' %>
   <% end %>
 
-  <!-- Or, shorthand for simple strings -->
+
+
+  <!-- ...or, pass in a string for simple messages -->
+  
   <%= rehearsal_banner "Put your message here" %>
 </body>
 ```
