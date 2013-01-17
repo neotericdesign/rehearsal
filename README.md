@@ -66,11 +66,11 @@ Or require the default CSS:
 ## Configurable options
 
 ```
-$ rails g rehearsal:intializer
+$ rails g rehearsal:initializer
 ```
 
 ```ruby
-# config/intitializers/rehersal.rb
+# config/initializers/rehersal.rb
 
 Rehearsal.configure do |config|
   config.env     = :staging
