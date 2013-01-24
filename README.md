@@ -1,8 +1,14 @@
 # Rehearsal
 
-This gem enables drop-in HTTP basic auth for Rails apps
+Do you host sites on a staging server during development for client & team review?
 
-You also get a `rehearsal_banner` view helper
+Can't remember that http basic auth code you're supposed to use?
+
+Do you forget to guard it behind a Rails.env conditional, or remove the code before production?
+
+This gem provides an easy-to-remember method for using HTTP Basic Auth in a designated Rails environment.
+
+It also comes with a simple view helper for displaying a banner to your visitors in that environment.
 
 ## Installation
 
