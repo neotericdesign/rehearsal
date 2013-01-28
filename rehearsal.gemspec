@@ -15,5 +15,5 @@ Gem::Specification.new do |gem|
   gem.name          = "rehearsal"
   gem.version       = Rehearsal::VERSION
 
-  gem.add_dependency 'rails', '>= 3.0.0', '< 4.0.0'
+  gem.add_dependency 'rails', '>= 3.0.20', '< 4.0.0'
 end
