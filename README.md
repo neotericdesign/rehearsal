@@ -79,7 +79,8 @@ $ rails g rehearsal:initializer
 # config/initializers/rehersal.rb
 
 Rehearsal.configure do |config|
-  config.env     = :staging
-  config.enabled = true
+  config.auth_envs   = [:staging]
+  config.banner_envs = [:staging]
+  config.enabled     = true
 end
 ```
