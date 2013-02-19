@@ -47,6 +47,6 @@ module Rehearsal
 
   def rehearsing?
     return unless Rehearsal.config.enabled
-    Rails.env.to_sym == Rehearsal.config.env
+    Rehearsal.config.envs.include?(Rails.env.to_sym)
   end
 end
