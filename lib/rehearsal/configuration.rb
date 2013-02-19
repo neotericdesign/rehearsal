@@ -1,10 +1,11 @@
 module Rehearsal
   class Configuration
-    attr_accessor :envs, :enabled
+    attr_accessor :auth_envs, :banner_envs, :enabled
 
     def initialize
-      @envs   ||= [:staging]
-      @enabled = false if @enabled.nil?
+      @auth_envs   ||= [:staging]
+      @banner_envs ||= [:staging]
+      @enabled       = !@enabled.nil?
     end
   end
 end

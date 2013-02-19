@@ -1,7 +1,10 @@
 Rehearsal.configure do |config|
-  # Set the environment you want to rehearse in
-  # config.envs    = [:staging]
+  # Set the environments you want http basic auth in
+  # config.auth_envs   = [:staging]
+  #
+  # Set the environments you want the banner in
+  # config.banner_envs = [:staging]
   #
   # Enable/disable the rehearsal
-  # config.enabled = true
+  # config.enabled     = true
 end
