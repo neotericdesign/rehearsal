@@ -1,9 +1,9 @@
 module Rehearsal
   class Configuration
-    attr_accessor :env, :enabled
+    attr_accessor :envs, :enabled
 
     def initialize
-      @env   ||= :staging
+      @envs   ||= [:staging]
       @enabled = false if @enabled.nil?
     end
   end
