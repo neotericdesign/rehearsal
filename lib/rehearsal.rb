@@ -4,7 +4,9 @@ require "rehearsal/engine"
 module Rehearsal
   def self.included(base)
     base.extend ClassMethods
-    base.helper_method :rehearsing?
+    base.helper_method :rehearsing?,
+                       :rehearsing_with_auth?,
+                       :rehearsing_with_banner?
     base.before_filter :require_http_basic_auth
   end
 
@@ -42,11 +44,18 @@ module Rehearsal
   def require_http_basic_auth
     authenticate_or_request_with_http_basic do |username, password|
       username == self.username && password == self.password
-    end if rehearsing?
+    end if rehearsing_with_auth?
   end
 
   def rehearsing?
-    return unless Rehearsal.config.enabled
-    Rehearsal.config.envs.include?(Rails.env.to_sym)
+    Rehearsal.config.enabled
+  end
+
+  def rehearsing_with_auth?
+    rehearsing? && Rehearsal.config.auth_envs.include?(Rails.env.to_sym)
+  end
+
+  def rehearsing_with_banner?
+    rehearsing? && Rehearsal.config.banner_envs.include?(Rails.env.to_sym)
   end
 end

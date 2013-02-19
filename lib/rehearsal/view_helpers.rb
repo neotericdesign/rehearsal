@@ -1,7 +1,7 @@
 module Rehearsal
   module ViewHelpers
     def rehearsal_banner(message = nil)
-      return unless rehearsing?
+      return unless rehearsing_with_banner?
 
       content_tag :div, :id => 'rehearsal-banner' do
         if block_given?
