@@ -15,7 +15,7 @@ It also comes with a simple view helper for displaying a banner to your visitors
 Run `bundle install` after adding this to your Gemfile:
 
 ```ruby
-gem 'rehearsal', '~> 1.3.0'
+gem 'rehearsal', '~> 1.3.1'
 ```
 
 ## Usage
