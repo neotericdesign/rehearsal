@@ -21,8 +21,6 @@ module Rehearsal
           password
         end
       end
-
-      Rehearsal.config.enabled = true
     end
   end
 
