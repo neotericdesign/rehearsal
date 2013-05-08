@@ -1,0 +1,3 @@
+auth_envs:   staging
+banner_envs: staging
+enabled:     true
