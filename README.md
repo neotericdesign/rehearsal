@@ -12,17 +12,31 @@ It also comes with a simple view helper for displaying a banner to your visitors
 
 ## Installation
 
-Run `bundle install` after adding this to your Gemfile:
-
 ```ruby
-gem 'rehearsal', '~> 1.3.3'
+# Gemfile
+
+gem 'rehearsal', '~> 2.0.0'
+```
+
+```
+$ bundle install
+
+$ rails g rehearsal:install
+-or-
+$ rails g rehearsal:install user
+
+(please see Configuring Rehearsal below)
 ```
 
 ## Usage
 
-**By default, Rehearsal depends on a Rails staging environment**
+**By default, Rehearsal is enabled only in a Rails `staging` environment**
 
-In the controller you want to protect
+```
+$ cp config/environments/production.rb config/environments/staging.rb
+```
+
+The HTTP Basic Auth will prompt in environments configured in `auth_envs`
 
 ```ruby
 class ApplicationController < ActionController::Base
@@ -32,14 +46,12 @@ end
 
 ## Rehearsal Banner View Helper
 
-The rehearsal banner will appear in the configured Rehearsal.config.env, :staging by default
-
-In your view templates (for example, in your layout), you can insert the banner:
+The rehearsal banner will appear in environments configured in `banner_envs`
 
 ```erb
 <body>
   <!-- You can use multi-line HTML/erb with a block... -->
-  
+
   <%= rehearsal_banner do %>
     Put a message here with <%= link_to 'a link', '/to/somewhere' %>
   <% end %>
@@ -47,7 +59,7 @@ In your view templates (for example, in your layout), you can insert the banner:
 
 
   <!-- ...or, pass in a string for simple messages -->
-  
+
   <%= rehearsal_banner "Put your message here" %>
 </body>
 ```
@@ -69,18 +81,55 @@ Or require the default CSS:
 @import "rehearsal";
 ```
 
-## Configurable options
+## Configuring Rehearsal
+
+You can configure Rehearsal globally:
 
 ```
-$ rails g rehearsal:initializer
+$ rails g rehearsal:install
 ```
+
+It will install an initializer for your Rails app:
 
 ```ruby
 # config/initializers/rehersal.rb
 
 Rehearsal.configure do |config|
   config.auth_envs   = [:staging]
-  config.banner_envs = [:staging]
+     # Configure environments for HTTP Basic Auth login
+
+  config.banner_envs = [:staging, :development]
+     # Configure environments for view template banner
+
   config.enabled     = true
+     # true  : obeys environment configs above
+     # false : turn Rehearsal off, regardless of configs
 end
 ```
+
+And now you can configure Rehearsal per user:
+
+```
+$ rails g rehearsal:install user
+```
+
+It will install a hidden yaml config in your Rails root:
+
+```yml
+# .rehearsal
+# this file is added to .gitignore
+
+auth_envs:   staging
+banner_envs: staging, development
+enabled:     true
+```
+
+The config/initializer file is removed during a user install
+
+The .rehearsal file is removed during a global(default) install
+
+## TODO:
+
+* Installation should include requiring the CSS
+* Installation should include adding the `rehearse_with` method to `ApplicationController`
+* Installation should include adding the `rehearsal_banner` as a partial to the view templates
