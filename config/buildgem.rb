@@ -1,6 +1,6 @@
 require 'buildgem'
 
 Buildgem.configure do |config|
-  config.gem_path = "."
-  config.gem_top_level_namespace = "rehearsal"
+  config.git_push_tags = true
+  config.gem_source    = :rubygems
 end
