@@ -2,8 +2,8 @@
 require File.expand_path('../lib/rehearsal/version', __FILE__)
 
 Gem::Specification.new do |gem|
-  gem.authors       = ["Joe Sak"]
-  gem.email         = ["joe@neotericdesign.com"]
+  gem.authors       = ["Joe Sak", "Nic Aitch"]
+  gem.email         = ["joe@neotericdesign.com", "nic@neotericdesign.com"]
   gem.description   = %q{Quickly add Staging Env. HTTP basic auth to your project}
   gem.summary       = %q{Easy HTTP Basic Auth for Staging Rails Apps}
   gem.homepage      = ""
