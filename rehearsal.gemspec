@@ -8,7 +8,7 @@ Gem::Specification.new do |gem|
   gem.summary       = %q{Easy HTTP Basic Auth for Staging Rails Apps}
   gem.homepage      = ""
 
-  gem.files         = `git ls-files -- {lib/*,vendor/*,*.gemspec}`.split("\n")
+  gem.files         = Dir["{app,config,db,lib,vendor}/**/*"] + ["Rakefile", "README.md"]
   gem.require_paths = ["lib"]
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
